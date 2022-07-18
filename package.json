@@ -7,8 +7,14 @@
     "dist",
     "src"
   ],
+  "engines": {
+    "pnpm": ">=3",
+    "node": ">=14"
+  },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "prepare": "npm run build"
   },
   "keywords": [
     "react",

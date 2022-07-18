@@ -1,17 +1,11 @@
-import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
+import { useCallback, useRef } from "react";
+import useIsoLayoutEffect from "./useIsoLayoutEffect";
 
 type Func<Arg, Result> = (...args: Arg[]) => Result;
 
 const throwOnRender = () => {
   throw new Error("Cannot call an event handler while rendering.");
 };
-
-/**
- * Isomorphic layout effect that falls back
- * to useEffect when server rendering
- */
-const useIsoLayoutEffect =
-  typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 /**
  * Memoize a callback function that holds
