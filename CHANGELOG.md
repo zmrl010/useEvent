@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/zmrl010/useEvent/compare/v1.0.0...v1.0.1) (2022-07-18)
+
+
+### Bug Fixes
+
+* test release ([fbddb34](https://github.com/zmrl010/useEvent/commit/fbddb34eebe0ca7c195c6f02952963315e73bb73))
+
 # 1.0.0 (2022-07-18)
 
 
