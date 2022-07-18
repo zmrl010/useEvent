@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 
-type Func<Args, Result> = (...args: Args[]) => Result;
+type Func<Arg, Result> = (...args: Arg[]) => Result;
 
 const throwOnRender = () => {
   throw new Error("Cannot call an event handler while rendering.");
@@ -24,14 +24,14 @@ const useIsoLayoutEffect =
  *
  * @returns Referentially stable event handler
  */
-export default function useEvent<A, R>(handler: Func<A, R>) {
+export default function useEvent<Arg, Result>(handler: Func<Arg, Result>) {
   const ref = useRef<typeof handler>(throwOnRender);
 
   useIsoLayoutEffect(() => {
     ref.current = handler;
   });
 
-  return useCallback((...args: A[]): R => {
+  return useCallback((...args: Arg[]): Result => {
     const fn = ref.current;
     return fn(...args);
   }, []);
